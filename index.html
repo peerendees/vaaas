@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERENT | Beratung + Entwicklung | Partner für KI Transformation</title>
+    <!-- Entferne das Tailwind CDN Skript -->
+    <!-- <script src=
+     "https://cdn.tailwindcss.com"></script> -->
+    <!-- Füge den Link zur kompilierten CSS-Datei hinzu -->
+    <link href="output.css" rel="stylesheet">
+    <!-- Füge den Favicon-Link hinzu -->
+    <link rel="icon" href="images/logo-kompakt-farbe.png" type="image/png">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .font-condensed {
+            font-stretch: condensed;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .hero-title {
+            /* VERLÄSSLICHE Responsive Schrift mit clamp() */
+            font-size: clamp(2rem, 8vw, 6rem) !important;
+            /* Min: 32px, Mittel: 8% der Viewport-Breite, Max: 96px */
+            line-height: 1.1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="images/logo_farbe_v3.png" alt="Firmenlogo" class="h-20 mr-2 my-1" width="auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="profil.html" class="text-gray-600 hover:text-[#D6B366] focus:text-[#D6B366] focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Mehr über mich</a>
+                    <a href="https://shop.berent.ai" class="text-gray-600 hover:text-[#D6B366] focus:text-[#D6B366] focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Shop</a>
+                    <a href="#kontakt-bereich" class="text-gray-600 hover:text-[#D6B366] focus:text-[#D6B366] focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Kontakt</a>
+                    <a href="termin.html" class="ml-4 px-4 py-2 bg-[#80331A] text-white font-semibold rounded-lg hover:bg-[#A0522D] focus:bg-[#A0522D] focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">
+                        Nächster Schritt
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button aria-label="Menü öffnen" id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#D6B366]">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden bg-white md:hidden shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="profil.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#D6B366] hover:bg-gray-50 focus:text-[#D6B366] focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Mehr über mich</a>
+                <a href="https://shop.berent.ai" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#D6B366] hover:bg-gray-50 focus:text-[#D6B366] focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Shop</a>
+                <a href="#kontakt-bereich" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#D6B366] hover:bg-gray-50 focus:text-[#D6B366] focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Kontakt</a>
+                <a href="termin.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-[#80331A] hover:bg-[#A0522D] focus:bg-[#A0522D] focus:outline-none focus:ring-2 focus:ring-[#D6B366] transition-colors duration-300">Nächster Schritt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-[100svh]">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover hero-bg"
+             style="background-image: url('images/hintergrund.png?v=2');">
+            <span class="w-full h-full absolute opacity-65 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+            <div class="items-center flex flex-wrap justify-start">
+                <div class="w-full px-4 text-left">
+                    <div class="text-white max-w-4xl">
+                        <!-- Erste Zeile - geteilt -->
+                        <h1 class="hero-animate font-condensed text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 text-[#D6B366] tracking-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                            KI basierte Telefonassistenz
+                        </h1>
+                        <h1 class="hero-animate font-condensed text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-[#D6B366] tracking-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                            für E-Commerce
+                        </h1>
+                        
+                        <!-- Zweite Zeile -->
+                        <h2 class="hero-animate font-condensed text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-8 text-[#80331A] tracking-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                            In vier Schritten. Live in 4 Stunden.
+                        </h2>
+                        
+                        <div class="hero-animate mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="termin.html" class="inline-block px-6 py-2 bg-[#80331A] text-white text-sm font-medium rounded-lg hover:bg-[#A0522D] transition-colors duration-300">
+                                <span class="hidden sm:inline">Nächster Schritt</span>
+                                <span class="sm:hidden">Nächster Schritt</span>
+                            </a>
+                            <a href="https://shop.berent.ai/ki-einsteiger/" target="_blank" class="inline-block px-6 py-2 bg-[#D6B366] text-[#80331A] text-sm font-medium rounded-lg hover:bg-[#E6C376] transition-colors duration-300">
+                                <span class="hidden sm:inline">📚 KI für Einsteiger</span>
+                                <span class="sm:hidden">📚 KI Buch</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Customer Logos Section wieder innen, am unteren Rand -->
+        <section class="absolute bottom-0 left-0 right-0 w-full bg-white py-4 shadow-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Scroll-Container für Logos (Einzelanzeige Mobil) -->
+                <div class="flex flex-nowrap items-center overflow-x-auto pb-4 snap-x snap-mandatory md:justify-center md:space-x-16 md:pb-0">
+                    <a href="https://www.mcr-unternehmensberatung.de/" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center flex-shrink-0 snap-center md:w-auto">
+                        <img src="customer-logos/logo-mcr.png" alt="MCR Logo" class="h-12" width="auto" loading="lazy">
+                    </a>
+                    <a href="https://h-pcn.de" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center flex-shrink-0 snap-center md:w-auto">
+                        <img src="customer-logos/logo-hpcn.png" alt="h-pcn Logo" class="h-10" width="auto" loading="lazy">
+                    </a>
+                    <a href="https://future-hair.de" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center flex-shrink-0 snap-center md:w-auto">
+                        <img src="customer-logos/logo-future-hair.png" alt="Future Hair Logo" class="h-10" width="auto" loading="lazy">
+                    </a>
+                    <a href="https://benseler-design.de" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center flex-shrink-0 snap-center md:w-auto">
+                        <img src="customer-logos/benseler-logo.jpeg" alt="Benseler Design Logo" class="h-8" width="auto" loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Section -->
+    <section id="leistungen" class="pt-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center text-center mb-12">
+                <div class="w-full lg:w-6/12 px-4">
+                    <h2 class="text-4xl font-bold mb-4 text-[#80331A]">
+                        Leistungen
+                    </h2>
+                </div>
+            </div>
+            <div class="flex flex-wrap">
+                <!-- Feature 1 -->
+                <div class="md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="bg-white rounded-lg shadow-lg p-8 h-full flex flex-col justify-center text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-[#D6B366] mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                        </div>
+                        <p class="text-[#80331A] text-xl leading-relaxed font-bold mb-2">
+                            Klare Bedarfsanalyse
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            Systematische Erhebung Deiner Ist-Situation und präzise Definition der Aufgaben des Telefonassistenten.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="bg-white rounded-lg shadow-lg p-8 h-full flex flex-col justify-center text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-[#D6B366] mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                            </svg>
+                        </div>
+                        <p class="text-[#80331A] text-xl leading-relaxed font-bold mb-2">
+                            Passgenaues Training
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            Maßgeschneiderter Kurz-Workshop, sodass die Mitarbeiter sicher mit dem Assistenten arbeiten.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="bg-white rounded-lg shadow-lg p-8 h-full flex flex-col justify-center text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-[#D6B366] mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-2 text-[#D6B366]" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 1.255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-1.255c.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <p class="text-[#80331A] text-xl leading-relaxed font-bold mb-2">
+                            Implementierung
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            Die Konfiguration des Assistenten inkl. Wissensdatenbank übernehme ich für Dich.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 4 NEU -->
+                <div class="md:w-1/2 lg:w-1/4 px-4 mb-12">
+                    <div class="bg-white rounded-lg shadow-lg p-8 h-full flex flex-col justify-center text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-[#D6B366] mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                            </svg>
+                        </div>
+                        <p class="text-[#80331A] text-xl leading-relaxed font-bold mb-2">
+                            Kontinuierliche Verbesserung
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            Transparente Erfolgskontrolle durch Monitoring und mein proprietäres Kennzahlensystem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neuer Nutzen-Block -->
+            <div class="container mx-auto px-4">
+                <div class="mt-16 max-w-4xl mx-auto px-4 text-[#80331A]">
+                    <h4 class="text-4xl font-bold text-center mb-4">Dein Nutzen</h4>
+                    <div class="flex flex-wrap justify-center text-center mb-6">
+                        <div class="w-full md:w-1/3 px-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-2 text-[#D6B366]" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="font-semibold text-[#80331A]">Bis zu 70% Zeitersparnis</p>
+                            <p class="text-sm">durch Virtuelle Assistenz</p>
+                        </div>
+                        <div class="w-full md:w-1/3 px-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-2 text-[#D6B366]" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                            </svg>
+                            <p class="font-semibold text-[#80331A]">Höhere Mitarbeiterzufriedenheit</p>
+                            <p class="text-sm">durch spürbare Entlastung</p>
+                        </div>
+                        <div class="w-full md:w-1/3 px-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-2 text-[#D6B366]" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                            </svg>
+                            <p class="font-semibold text-[#80331A]">Messbare ROI</p>
+                            <p class="text-sm">typischerweise binnen 3-6 Monaten</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8">
+                         <a href="termin.html" class="inline-block px-8 py-3 bg-[#80331A] text-white font-semibold rounded-lg hover:bg-[#A0522D] transition-colors duration-300">
+                            Sicher Dir jetzt Deinen klaren Vorteil
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neuer Textblock: Für wen und welches Problem -->
+            <div class="mt-16 mb-16 max-w-5xl mx-auto px-4 text-[#80331A]">
+                <h3 class="text-4xl font-bold text-center mb-4">Was ich Dir noch sagen möchte</h3>
+
+                <h4 class="text-2xl font-semibold leading-relaxed mb-6 text-center max-w-3xl mx-auto">
+                    Aktuelle Herausforderungen der KI-Transformation im Mittelstand
+                </h4>
+
+                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                        </svg>
+                        <span class="text-base font-medium">Digitalisierung und KI sinnvoll ins Team integrieren</span>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
+                        <span class="text-base font-medium">Widerstand und Unsicherheit bei Mitarbeitern überwinden</span>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                        </svg>
+                        <span class="text-base font-medium">Messbare Erfolge ohne übermäßige Investitionen erzielen</span>
+                    </div>
+                </div>
+                
+                <h4 class="text-2xl font-semibold leading-relaxed mt-8 mb-6 text-center max-w-3xl mx-auto">
+                    Deine Organisation gemeinsam zukunftssicher entwickeln
+                </h4>
+
+                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                        </svg>
+                        <span class="text-base font-medium">Systemischer Blick auf Mensch und Technologie</span>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                        </svg>
+                        <span class="text-base font-medium">KI-gestützte Analyse und praxisnahe Trainings</span>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center text-[#80331A] transform hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                        <span class="text-base font-medium">Lösungen, die zu Deinen Abläufen passen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Meine Kunden..." Block - Verschoben und angepasst -->
+    <div class="relative bg-[#80331A]/90 py-16 bg-cover bg-center w-full" style="background-image: url('images/kunden-hintergrund.jpg');">
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <h4 class="text-3xl font-semibold mb-10 text-white text-center">Meine Kunden schätzen an mir</h4>
+            
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622a11.99 11.99 0 00-.598-3.75c-.35-.992-.87-1.93-1.51-2.796A11.975 11.975 0 0012 2.964a11.975 11.975 0 00-3.659.801Z" />
+                    </svg>
+                    <span class="text-base font-medium">Verlässlichkeit in der Umsetzung</span>
+                </div>
+
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-2.138a.5.5 0 01.865-.501 48.171 48.171 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                    </svg>
+                    <span class="text-base font-medium">Klarheit in der Kommunikation</span>
+                </div>
+
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                    </svg>
+                    <span class="text-base font-medium">Fähigkeit, Technik und Mensch zusammenzubringen</span>
+                </div>
+
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                    </svg>
+                    <span class="text-base font-medium">Trainings, die wirklich ankommen</span>
+                </div>
+
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h18M16.5 3l4.5 4.5m0 0L16.5 12M21 7.5H3" />
+                    </svg>
+                    <span class="text-base font-medium">Gelingender Transfer der Inhalte in den Alltag</span>
+                </div>
+
+                <div class="bg-gray-800/60 border border-[#D6B366]/50 rounded-lg p-6 text-center text-white transform hover:bg-gray-800/80 hover:-translate-y-1 transition duration-300 ease-in-out flex flex-col items-center justify-start h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#D6B366] mb-4" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                    </svg>
+                    <span class="text-base font-medium">Ergebniskontrolle und Feedback-Kultur</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative text-white py-12 bg-cover bg-center" style="background-image: url('images/hintergrund-footer.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div class="relative container mx-auto px-4 z-10">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full lg:w-4/12 px-4">
+                    <h4 class="text-2xl font-semibold mb-4 text-white">Über mich</h4>
+                    <p class="text-white leading-loose">
+                        Technologie verändert alles – aber ohne die Menschen im Unternehmen bleibt ihr Potenzial ungenutzt.
+                    </p>
+                    <p class="text-white leading-loose mt-4">
+                         Ich bin Marcus Kunkel und begleite Dich und Dein mittelständisches Unternehmen bei der Einführung von Automatisierung und KI – mit systemischem Blick, klarer Bedarfsanalyse und praxisnahen Trainings. <br>
+                         <span class="font-semibold">Was wenige schaffen:</span> Ich mache Technik verständlich und Veränderung menschlich. Damit Prozesse nicht nur moderner, sondern auch tragfähig werden.
+                    </p>
+                </div>
+                <div id="kontakt-bereich" class="w-full lg:w-4/12 px-4 mt-8 lg:mt-0">
+                    <h4 class="text-2xl font-semibold mb-4 text-white">Kontakt</h4>
+                    <p class="text-white leading-loose mb-4">
+                        E-Mail: office [at] berent [.] ai
+                    </p>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="flex flex-col md:flex-row md:space-x-4">
+                            <div class="flex-1 mb-4 md:mb-0">
+                                <label for="vorname" class="block mb-1 text-sm font-medium text-white">Vorname*</label>
+                                <input type="text" id="vorname" name="vorname" required class="w-full p-2 border rounded bg-gray-800 border-gray-600 text-white focus:ring-[#D6B366] focus:border-[#D6B366]">
+                            </div>
+                            <div class="flex-1">
+                                <label for="name" class="block mb-1 text-sm font-medium text-white">Name</label>
+                                <input type="text" id="name" name="name" class="w-full p-2 border rounded bg-gray-800 border-gray-600 text-white focus:ring-[#D6B366] focus:border-[#D6B366]">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-1 text-sm font-medium text-white">E-Mail-Adresse*</label>
+                            <input type="email" id="email" name="email" required class="w-full p-2 border rounded bg-gray-800 border-gray-600 text-white focus:ring-[#D6B366] focus:border-[#D6B366]">
+                        </div>
+                        <div>
+                            <label for="anliegen" class="block mb-1 text-sm font-medium text-white">Mein Anliegen, weshalb ich mich an Dich wende.</label>
+                            <textarea id="anliegen" name="anliegen" rows="4" class="w-full p-2 border rounded bg-gray-800 border-gray-600 text-white focus:ring-[#D6B366] focus:border-[#D6B366]" placeholder="Mein Anliegen..."></textarea>
+                        </div>
+                        <div class="flex items-start">
+                            <input id="zustimmung" name="zustimmung" type="checkbox" required class="mr-2 mt-1 h-4 w-4 rounded border-gray-500 text-[#D6B366] focus:ring-[#D6B366]">
+                            <label for="zustimmung" class="text-sm text-white">Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert und verarbeitet werden. Mir ist bekannt, dass ich meine Einwilligung jederzeit widerrufen kann.*</label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="px-6 py-2 bg-white text-[#80331A] font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                Senden
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mt-8 lg:mt-0">
+                    <h4 class="text-2xl font-semibold mb-4 text-white">Soziale Medien</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/berentai" aria-label="LinkedIn Profil von BERENT" target="_blank" class="text-white hover:text-[#D6B366] transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/berent.ai" aria-label="Instagram Profil von BERENT" target="_blank" class="text-white hover:text-[#D6B366] transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p class="text-white flex justify-end items-center">
+                    <span>© 2025 BERENT | Beratung + Entwicklung. Alle Rechte vorbehalten.</span>
+                    <a href="impressum.html" class="text-white hover:text-[#D6B366] transition-colors duration-300 ml-4">Impressum</a>
+                    <a href="datenschutz.html" class="text-white hover:text-[#D6B366] transition-colors duration-300 ml-4">Datenschutz</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Füge JavaScript am Ende des Body-Tags hinzu -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Schließe das mobile Menü, wenn auf einen Link geklickt wird
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero-Animationen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elemente mit der Klasse hero-animate sammeln
+            const heroElements = document.querySelectorAll('.hero-animate');
+            
+            // Elemente initial mit der Fade-in-up Klasse ausblenden
+            heroElements.forEach(el => {
+                el.classList.add('fade-in-up');
+            });
+            
+            // Elemente nacheinander einblenden
+            setTimeout(() => {
+                heroElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, 300 * index); // Jedes Element wird 300ms später als das vorherige angezeigt
+                });
+            }, 500); // Kurze Verzögerung am Anfang für besseren Effekt
+        });
+    </script>
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js') // Pfad muss stimmen!
+            .then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+</body>
+</html>
