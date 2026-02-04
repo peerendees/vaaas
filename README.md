@@ -1,2 +1,2 @@
 # vaaas
-VAAAS - Vercel-hosted content for berent.ai
+VAaaS - Vercel-hosted content for berent.ai
