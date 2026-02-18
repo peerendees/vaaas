@@ -16,7 +16,7 @@ const FILES_TO_CACHE = [
   'images/hintergrund.png',
   'images/hintergrund-footer.jpg',
   'images/kunden-hintergrund.jpg', // Falls verwendet und benötigt
-  'customer-logos/logo-mcr.png',
+  'customer-logos/logo-nachtwaechter.png',
   'customer-logos/h-pcn.png',
   'customer-logos/logo-future-hair.png',
   'customer-logos/benseler-logo.jpeg',
