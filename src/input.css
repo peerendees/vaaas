@@ -1,3 +1,238 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0e0e10;
+    --bg2: #151518;
+    --bg3: #1c1c20;
+    --border: #2a2a2e;
+    --border2: #3a3a40;
+    --copper: #B5742A;
+    --copper-lt: #cc8c3e;
+    --copper-dk: #7a4e1c;
+    --gold: #E8C98A;
+    --gold-dim: #c4a870;
+    --text: #C4BCB1;
+    --text-muted: #7a6a58;
+    --muted2: #9a8870;
+    --danger: #C0392B;
+    --overlay: rgba(14, 14, 16, 0.85);
+  }
+
+  [data-theme="light"] {
+    --bg: #F5F2EE;
+    --bg2: #EDEAE4;
+    --bg3: #E3DFD8;
+    --border: #D1CBBD;
+    --border2: #B8B0A0;
+    --copper: #9A6320;
+    --copper-lt: #B5742A;
+    --copper-dk: #7a4e1c;
+    --gold: #9A6320;
+    --gold-dim: #7A6248;
+    --text: #2E2318;
+    --text-muted: #7A6248;
+    --muted2: #9a8870;
+    --overlay: rgba(245, 242, 238, 0.85);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.03em;
+    color: var(--copper);
+  }
+
+  a {
+    transition: color 0.3s ease;
+  }
+
+  /* QR-Code: im Dark Mode invertieren, damit der Hintergrund dunkel wird */
+  .qr-adaptive {
+    filter: invert(1) brightness(0.85);
+    border-radius: 8px;
+  }
+
+  [data-theme="light"] .qr-adaptive {
+    filter: none;
+    opacity: 0.9;
+  }
+}
+
+@layer components {
+  /* Phone Banner */
+  .phone-banner {
+    background: var(--copper);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    transition: background 0.3s ease;
+  }
+
+  .phone-banner a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .phone-banner a:hover {
+    color: var(--gold);
+  }
+
+  [data-theme="light"] .phone-banner {
+    background: var(--copper-dk);
+  }
+
+  /* Navigation */
+  .nav-main {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--copper);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background: var(--copper);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--copper-lt);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--copper);
+    color: var(--copper);
+  }
+
+  /* Footer */
+  .footer-main {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: background 0.3s ease;
+  }
+
+  /* Section overlay (for background images) */
+  .section-overlay {
+    background: var(--overlay);
+    transition: background 0.3s ease;
+  }
+
+  /* Theme toggle */
+  .theme-toggle {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theme-toggle:hover {
+    color: var(--copper);
+    border-color: var(--copper);
+  }
+
+  /* Form inputs */
+  .input-field {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    color: var(--text);
+    font-family: 'Lora', Georgia, serif;
+    transition: border-color 0.3s ease;
+    width: 100%;
+  }
+
+  .input-field:focus {
+    border-color: var(--copper);
+    outline: none;
+  }
+
+  .input-field::placeholder {
+    color: var(--text-muted);
+  }
+}
