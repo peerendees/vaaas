@@ -32,8 +32,13 @@
     </style>
 </head>
 <body>
+    <!-- Back Navigation -->
+    <div style="position:fixed;top:0;left:0;right:0;z-index:70;background:var(--bg2);border-bottom:1px solid var(--border);text-align:left;">
+        <a href="https://berent.ai/apps" class="header-back" onclick="event.preventDefault(); if(window.opener) { window.close(); } else if(document.referrer.includes('berent.ai')) { history.back(); } else { window.location.href='https://berent.ai/apps'; }">&larr; berent.ai</a>
+    </div>
+
     <!-- Telefon-Banner -->
-    <div class="phone-banner">
+    <div class="phone-banner" style="top: 1.6rem;">
         <div class="max-w-7xl mx-auto px-4">
             Telefonassistent jetzt testen:
             <a href="tel:+4971193965454" class="ml-2">0711 93965454</a>
@@ -41,7 +46,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="nav-main fixed w-full z-50" style="top: 2rem;">
+    <nav class="nav-main fixed w-full z-50" style="top: 3.6rem;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3">
                 <div class="flex items-center">

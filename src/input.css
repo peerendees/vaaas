@@ -104,6 +104,23 @@
     color: var(--gold);
   }
 
+  /* Header Back Navigation */
+  .header-back {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .header-back:hover {
+    color: var(--copper);
+  }
+
   /* Navigation */
   .nav-main {
     background: var(--bg2);
